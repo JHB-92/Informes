@@ -1,0 +1,138 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+
+%Fuente (compilarlo en Latex.pdf normal porque va más rápido y luego
+%y al final insertarlo en Arial) DA ERROR
+%\usepackage{fontspec}
+%\setmainfont{Arial}
+
+%Estructura de la Página
+\usepackage[left=2.54cm,right=2.54cm,top=2.54cm,bottom=2.54cm]{geometry}
+
+%Tablas
+
+\usepackage[]{float}
+
+%Páginas en horizontal
+
+
+%Pies de página y encabezado
+\usepackage{fancyhdr}
+
+%Comentario párrafos
+\usepackage{verbatim}
+
+%Paquete arquitectura página
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Revisión Informe Ensayos Lote 2}
+\rhead{CAF}
+\rfoot{\thepage}
+\lfoot{}
+
+%Interlineado
+\renewcommand{\baselinestretch}{0.5}
+
+
+
+%Paquete Matemático
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{breqn}
+
+%Paquete para el código
+% Paquetes Listing
+
+\usepackage{listings}
+\usepackage{xcolor}
+
+%Settings 
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+
+\lstdefinestyle{mystyle}{
+ backgroundcolor=\color{backcolour},   
+ commentstyle=\color{codegreen},
+ keywordstyle=\color{magenta},
+ numberstyle=\tiny\color{codegray},
+ stringstyle=\color{codepurple},
+ basicstyle=\ttfamily\footnotesize,
+ breakatwhitespace=false,         
+ breaklines=true,                 
+ captionpos=b,                    
+ keepspaces=true,                 
+ numbers=left,                    
+ numbersep=5pt,                  
+ showspaces=false,                
+ showstringspaces=false,
+ showtabs=false,                  
+ tabsize=2
+}
+
+\lstset{style=mystyle}
+%Paquete Imágenes
+
+\usepackage{graphicx}
+\graphicspath{ {Images/} }
+\usepackage{subfig}
+
+%Bibliografía
+\usepackage[backend=bibtex]{biblatex}
+\addbibresource{referencias.bib}
+
+%Espacio entre párrafos
+\setlength{\parskip}{0.5cm}
+%Sangría
+\setlength{\parindent}{0cm}
+
+\title{Estudio de los rendimentos declarados  obtenidos para el motor de TSA implementado en el proyecto C.J5}
+\author{José Honrubia Blanco}
+\date{Noviembre 2022}
+
+\begin{document}
+\section{Objetivo}
+El objetivo de este documento es comparar los valores calculados del motor TSA usado en el proyecto C.J5 con los valores finalmente obtenidos
+
+\section{Método de Cálculo}
+Los cálculos se van a realizar para las frecuencias de 30, 62.2, 71, 75 y 95 Hz. Al final, se hará la comparativa entre los puntos recogidos en el datasheet y los obtenidos en los ensayos realizados por TSA.
+
+Para la ilustración de los cálculos se va a emplear los datos de partida de 75 Hz por ser el punto característico del motor (S1). Los valores se recogen en la tabla \ref{table: valores_iniciales}:
+{\extrarowheight
+\renewcommand{\arraystretch}{2.25}
+    \begin{table}[H]
+    \centering
+    \begin{tabular}{ccccc}
+    P2 (W) & 𝜂 (\%) & s (\%) & Mcalculado (Nm) & Mmedido (Nm) \\ \hline
+    1026   & 15.7    & 0.01   & 4.4             & 4            \\
+    2054   & 27.2    & 0.02   & 8.7             & 8            \\
+    2946   & 34.9    & 0.03   & 12.5            & 5.5          \\
+    4480   & 44.8    & 0.04   & 19              & 13           \\
+    7373   & 57.1    & 0.05   & 31.3            & 22.75        \\
+    9778   & 63.8    & 0.05   & 41.5            & 32           \\
+    16875  & 75      & 0.09   & 71.7            & 58.5         \\
+    23811  & 80.7    & 0.12   & 101.1           & 96.5         \\
+    30405  & 84      & 0.16   & 129.2           & 125.5        \\
+    42870  & 87.8    & 0.22   & 182.2           & 176          \\
+    68520  & 91.4    & 0.33   & 291.5           & 277.5        \\
+    98666  & 93.2    & 0.48   & 420.4           & 421.25       \\
+    119382 & 93.8    & 0.61   & 509.2           & 495          \\
+    138462 & 94.1    & 0.72   & 591.1           & 594.5        \\
+    158594 & 94.3    & 0.77   & 677.5           & 671.75       \\
+    180824 & 94.4    & 0.93   & 773.6           & 762.75       \\
+    201008 & 94.5    & 1.01   & 859.9           & 866.5        \\
+    224159 & 94.3    & 1.21   & 962.7           & 958          \\
+    250876 & 94.3    & 1.31   & 1078            & 1070.5       \\
+    283611 & 94.1    & 1.45   & 1219.9          & 1202.5       \\ \hline
+    \end{tabular}
+    \caption{Valores aportados por TSA para la frecuencia de 75 Hz a distintas potencias}
+    \label{tab: valores_iniciales}
+    \end{table}}
+
+
+\end{document}
